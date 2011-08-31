@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Student</th>
+    <th>Student Id</th>
+    <th>Student Name</th>
     <th>Amount</th>
     <th></th>
     <th></th>
@@ -12,6 +13,10 @@
 <% donations.each do |donation| %>
   <tr>
     <td><%= donation.student_id %></td>
+    <% @sel_students = Student.find_all_by_id(donation.student_id) %>
+    <% for sel_student in @sel_students %>
+    <td><%= sel_student.name %></td>
+    <% end %>
     <td><%= donation.amount %></td>
     <td><%= link_to 'Show', donation %></td>
     <td><%= link_to 'Edit', edit_donation_path(donation) %></td>

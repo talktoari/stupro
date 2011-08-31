@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Donor</th>
+    <th>Donor Id</th>
+    <th>Donor Name</th>
     <th>Amount</th>
     <th></th>
   </tr>
@@ -10,6 +11,10 @@
 <% donations.each do |donation| %>
   <tr>
     <td><%= donation.donor_id %></td>
+    <% @sel_donors = Donor.find_all_by_id(donation.donor_id) %>
+    <% for sel_donor in @sel_donors %>
+    <td><%= sel_donor.name %></td>
+    <% end %>
     <td><%= donation.amount %></td>
     <td><%= link_to 'Show', donation %></td>
   </tr>
