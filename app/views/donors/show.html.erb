@@ -1,0 +1,24 @@
+<h1><%= @donor.name %> Details</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @donor.name %>
+</p>
+
+<p>
+  <b>Username:</b>
+  <%= @donor.username %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @donor.city %>
+</p>
+
+<%= render :partial=>"donation_list", :locals=>{:donations=>@donor.donations} %>
+
+<%= render :partial=>"new_donation", :locals=>{:donation=>Donation.new(:donor_id=>@donor.id)} %>
+
+<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<%= link_to 'Back', donors_path %>

@@ -1,0 +1,19 @@
+<h1>Received donations</h1>
+
+<table>
+  <tr>
+    <th>Donor</th>
+    <th>Amount</th>
+    <th></th>
+  </tr>
+
+<% donations.each do |donation| %>
+  <tr>
+    <td><%= donation.donor_id %></td>
+    <td><%= donation.amount %></td>
+    <td><%= link_to 'Show', donation %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

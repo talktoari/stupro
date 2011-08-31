@@ -1,0 +1,22 @@
+<h1><%= @student.name %> Details</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @student.name %>
+</p>
+
+<p>
+  <b>Age:</b>
+  <%= @student.age %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @student.city %>
+</p>
+
+<%= render :partial=>"donation_list", :locals=>{:donations=>@student.donations} %>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
